@@ -1,4 +1,7 @@
 package com.StudentLibrary.Studentlibrary.Model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,7 +19,7 @@ public class Author {
     private int age;
     private String country;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "author",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Book> books_written;
 

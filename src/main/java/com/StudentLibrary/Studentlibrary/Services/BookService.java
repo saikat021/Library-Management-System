@@ -1,6 +1,7 @@
 package com.StudentLibrary.Studentlibrary.Services;
 
 import com.StudentLibrary.Studentlibrary.Model.Book;
+import com.StudentLibrary.Studentlibrary.Model.Genre;
 import com.StudentLibrary.Studentlibrary.Repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,12 +23,13 @@ public class BookService {
     //Either giving you all the available books
     //OR gicing you all the non-available books
     public List<Book> getBooks(String genre, boolean isAvailable,String author){
+        Genre genre1 = Genre.valueOf(genre);
 
         if (genre!=null&&author!=null){
-            return bookRepository.findBooksByGenre_Author(genre,author,isAvailable);
+            return bookRepository.findBooksByGenre_Author(genre1,author,isAvailable);
         }
         else if (genre!=null){
-            return bookRepository.findBooksByGenre(genre,isAvailable);
+            return bookRepository.findBooksByGenre(genre1,isAvailable);
         }
         else if (author!=null){
             return bookRepository.findBooksByAuthor(author,isAvailable);

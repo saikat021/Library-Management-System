@@ -1,6 +1,7 @@
 package com.StudentLibrary.Studentlibrary.Repositories;
 
 import com.StudentLibrary.Studentlibrary.Model.Book;
+import com.StudentLibrary.Studentlibrary.Model.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -18,10 +19,10 @@ public interface BookRepository extends JpaRepository<Book,Integer> {
 
 
     @Query("select b from Book b where b.genre=:genre and b.available=:isAvailable and b.author in (select a from Author a where a.name=:author)")
-    List<Book> findBooksByGenre_Author(@Param("genre") String genre,@Param("author") String author,@Param("isAvailable") boolean isAvailable);
+    List<Book> findBooksByGenre_Author(@Param("genre") Genre genre, @Param("author") String author, @Param("isAvailable") boolean isAvailable);
 
     @Query("select b from Book b where b.genre=:genre and b.available=:isAvailable")
-    List<Book> findBooksByGenre(@Param("genre") String genre,@Param("isAvailable") boolean isAvailable);
+    List<Book> findBooksByGenre(@Param("genre") Genre genre,@Param("isAvailable") boolean isAvailable);
 
     @Query("select b from Book b where b.available=:isAvailable and b.author in(select a from Author a where a.name=:author)")
     List<Book> findBooksByAuthor(@Param("author") String author,@Param("isAvailable") boolean isAvailable);
