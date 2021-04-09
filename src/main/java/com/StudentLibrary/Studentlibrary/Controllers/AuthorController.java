@@ -7,7 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
+@RequestMapping("/author")
 public class AuthorController {
 
     @Autowired
@@ -30,6 +33,11 @@ public class AuthorController {
         authorService.deleteAuthor(id);
         return new ResponseEntity("Author deleted!!",HttpStatus.ACCEPTED);
 
+    }
+    @GetMapping("/all")
+    public ResponseEntity getAuthors(){
+        List<Author> authorList=authorService.getAllAuthor();
+        return new ResponseEntity(authorList,HttpStatus.OK);
     }
 
 }

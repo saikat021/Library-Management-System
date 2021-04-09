@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentService {
 
@@ -23,6 +25,13 @@ public class StudentService {
 
     @Autowired
     CardService cardService;
+
+    public Student getStudentByUsername(String email){
+        return studentRepository.findByEmailId(email);
+    }
+    public Student getById(int id ){
+        return studentRepository.findById(id).get();
+    }
 
     public void createStudent (Student student){
 
@@ -43,5 +52,8 @@ public class StudentService {
         cardService.deactivate(id);
         studentRepository.deleteCustom(id);
 
+    }
+    public List<Student> getAllStudent(){
+        return studentRepository.findAll();
     }
 }

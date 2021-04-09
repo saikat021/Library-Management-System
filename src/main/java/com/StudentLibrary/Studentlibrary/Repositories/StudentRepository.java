@@ -38,8 +38,7 @@ public interface StudentRepository extends JpaRepository<Student,Integer> {
     //Student(exact class name) class has the variable name as emailId so b.emailId
     // :mail has to passed in the argument of the function exact variable name as in the args
 
-    @Query("select b from Student b where b.emailId=: mail")
-    List<Student> find_by_mail(String mail);
+    Student  findByEmailId(String mail);
 
     //Native sql query -- dealing with sql tables
     //SQL table formed with name student not Student

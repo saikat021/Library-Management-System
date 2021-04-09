@@ -5,6 +5,8 @@ import com.StudentLibrary.Studentlibrary.Repositories.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AuthorService {
     @Autowired
@@ -20,5 +22,8 @@ public class AuthorService {
     }
     public void deleteAuthor(int id ){
         authorRepository.deleteCustom(id);
+    }
+    public List<Author> getAllAuthor(){
+        return authorRepository.findAll();
     }
 }

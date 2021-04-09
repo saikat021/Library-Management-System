@@ -23,12 +23,14 @@ public class BookService {
     //Either giving you all the available books
     //OR gicing you all the non-available books
     public List<Book> getBooks(String genre, boolean isAvailable,String author){
-        Genre genre1 = Genre.valueOf(genre);
+
 
         if (genre!=null&&author!=null){
+            Genre genre1 = Genre.valueOf(genre);
             return bookRepository.findBooksByGenre_Author(genre1,author,isAvailable);
         }
         else if (genre!=null){
+            Genre genre1 = Genre.valueOf(genre);
             return bookRepository.findBooksByGenre(genre1,isAvailable);
         }
         else if (author!=null){

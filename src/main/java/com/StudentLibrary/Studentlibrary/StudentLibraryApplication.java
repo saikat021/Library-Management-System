@@ -29,6 +29,13 @@ public class StudentLibraryApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StudentLibraryApplication.class, args);
+		//User 1 --> Username saikat password -->saikat123($2a$10$P5j63NyMx9hDKgeCGdBnkOjuEqhbPoyFnLAnZ8yaac9wFRZJYeSpm)
+		// authority--> STUDENT
+		//User2 --> username ananda password --> ananda123($2a$10$XCqqu8qsrqidvamgzZvExuB0NFDsOA.zNzLZ07/zB7ZxusEvuOvvW)
+		// authority-->ADMIN
+//		BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder();
+//		System.out.println(bCryptPasswordEncoder.encode("saikat123"));
+//		System.out.println(bCryptPasswordEncoder.encode("ananda123"));
 	}
 
 	@Override
