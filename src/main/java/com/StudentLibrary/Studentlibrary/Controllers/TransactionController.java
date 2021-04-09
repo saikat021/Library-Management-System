@@ -1,13 +1,13 @@
 package com.StudentLibrary.Studentlibrary.Controllers;
 
+import com.StudentLibrary.Studentlibrary.Model.Transaction;
 import com.StudentLibrary.Studentlibrary.Services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/transaction")
@@ -32,6 +32,18 @@ public class TransactionController {
         String transaction_id=transactionService.returnBooks(cardId,bookId);
         return new ResponseEntity(
                 "Your Transaction was Successful here is your Txn id:"+transaction_id,HttpStatus.OK);
+
+    }
+    @GetMapping("/all")
+    public ResponseEntity getTransactions(){
+        List<Transaction> transactionList=transactionService.getAll();
+        return  new ResponseEntity(transactionList,HttpStatus.OK);
+    }
+    @GetMapping("/")
+    public ResponseEntity getTransactionsByCard(){
+        //Return the list of transactions by a given card
+        return new ResponseEntity(null,HttpStatus.OK);
+
 
     }
 }

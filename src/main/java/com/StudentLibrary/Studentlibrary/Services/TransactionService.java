@@ -95,6 +95,9 @@ public class TransactionService {
 
     }
 
+    public List<Transaction> getAll(){
+        return transactionRepository.findAll();
+    }
 
 
 
