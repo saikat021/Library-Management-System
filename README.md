@@ -1,4 +1,4 @@
-# Library-Management-System
+# Library-Management-System ![](spring.PNG)
 ## Introduction 
 A Library Management System designed to see the books available in a college library. It allows students to register as a user and issue/return books from the college library hassle free. The backend is designed as a **Monolithic Architecture** with various nuances as discussed below.
 ## Technologies and Dependencies Used
@@ -47,7 +47,7 @@ An additional SQL table created to map the N:M mapping between the **Card** and 
 * fine amount (Applicable only while return operations and fine calculated based on a pre-defined Business logic written clearly in the Transaction Service class)
 
 
-
+ER Diagram:
 ![](ER.PNG)
 
 ### Functionalities Exposed 
@@ -77,10 +77,10 @@ Operations :-->
 **https://localhost:8080/returnBook?bookId=_&cardId=_** goes through the following operations before returning a book into the library.
 Constraints: -->
 1. Check if the book_id and card_id given is valid?
-2. Check if card_id is Activated(As when the student account is deleted by the student the card remains there in a Deactivated state for further accountability)
+2. Check if card_id is Activated(As when the student account is deleted by the student the card remains there in a Deactivated state for further accountability).
 Operations :-->
 1. Make book available.
-2. Make the card_id linked with the book null
+2. Make the card_id linked with the book null.
 3. From the transaction Repository find the latest transaction entry in the table with the same card_id and book_id and is an issue opearation. Find the date from that and calculate the fine.
 4. Make a new entry into the transaction table as an return operation and return the fine and unique UUID of the transaction entry to the calling client as a Response Entity.
 
@@ -99,9 +99,10 @@ Each example API preceeded by "http://localhost:8080"
 * /transaction/all--> gives a list of all transactions in the system (ADMIN) 
 * /transaction/issueBook--> issues a book(STUDENT)  
 .....
+## Author and Developed by
+Saikat Chakraborty
 
 
-## License
 
 
 
