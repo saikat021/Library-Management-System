@@ -45,9 +45,7 @@ An additional SQL table created to map the N:M mapping between the **Card** and 
 * Transaction status (SUCCESSFUL/PENDING/FAILED)
 * date
 * fine amount (Applicable only while return operations and fine calculated based on a pre-defined Business logic written clearly in the Transaction Service class)
-<p align="center">
-	![](ER.PNG)
-</p>
+![](ER.PNG)
 
 ### Functionalities Exposed 
 #### Student Controller class 
