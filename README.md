@@ -1,6 +1,4 @@
 # Library-Management-System
-Library Management System using Spring
-# Library-Management-System
 ## Introduction 
 A Library Management System designed to see the books available in a college library. It allows students to register as a user and issue/return books from the college library hassle free. The backend is designed as a **Monolithic Architecture** with various nuances as discussed below.
 ## Technologies and Dependencies Used
@@ -35,10 +33,7 @@ Actors/Entities are inspired by the real world entities that can use the applica
 4. **Author** having attributes:
 * unique primary key author_id, country, name, emailId
 5. **User** used mainly for authentication and authorization has attributes:
-* unique primary key user_id, Authorization--> (STUDENT/ADMIN or BOTH), Username(emailId for student), Password.
-<p align="center">
-  ![](entities.PNG)
-</p> 
+* unique primary key user_id, Authorization--> (STUDENT/ADMIN or BOTH), Username(emailId for student), Password. 
 
 ### Relationships Between Entities and ER diagram
 An additional SQL table created to map the N:M mapping between the **Card** and the **Book** called **Transaction table**. The Transaction table has the following entities:
